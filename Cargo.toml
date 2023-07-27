@@ -3,25 +3,14 @@ authors = [
     "Ashley Mannix<ashleymannix@live.com.au>",
     "Christopher Armstrong",
     "Dylan DPC<dylan.dpc@gmail.com>",
-    "Hunar Roop Kahlon<hunar.roop@gmail.com>"
+    "Hunar Roop Kahlon<hunar.roop@gmail.com>",
 ]
-categories = [
-    "data-structures",
-    "no-std",
-    "parser-implementations",
-    "wasm"
-]
+categories = ["data-structures", "no-std", "parser-implementations", "wasm"]
 description = "A library to generate and parse UUIDs."
 documentation = "https://docs.rs/uuid"
 edition = "2018"
-exclude = [
-    ".github/**"
-]
-keywords = [
-    "guid",
-    "unique",
-    "uuid"
-]
+exclude = [".github/**"]
+keywords = ["guid", "unique", "uuid"]
 license = "Apache-2.0 OR MIT"
 homepage = "https://github.com/uuid-rs/uuid"
 name = "uuid"
@@ -33,7 +22,19 @@ version = "1.4.1" # remember to update html_root_url in lib.rs
 rustc-args = ["--cfg", "uuid_unstable"]
 rustdoc-args = ["--cfg", "uuid_unstable"]
 targets = ["x86_64-unknown-linux-gnu"]
-features = ["serde", "arbitrary", "slog", "borsh", "v1", "v3", "v4", "v5", "v6", "v7", "v8"]
+features = [
+    "serde",
+    "arbitrary",
+    "slog",
+    "borsh",
+    "v1",
+    "v3",
+    "v4",
+    "v5",
+    "v6",
+    "v7",
+    "v8",
+]
 
 [package.metadata.playground]
 features = ["serde", "v1", "v3", "v4", "v5", "v6", "v7", "v8"]
@@ -109,7 +110,9 @@ version = "0.10.3"
 [dependencies.getrandom]
 package = "getrandom"
 optional = true
-version = "0.2"
+# version = "0.2"
+path = "../getrandom"
+features = ["custom"]
 
 # Private
 # Don't depend on this optional feature directly: it may change at any time
@@ -187,7 +190,4 @@ version = "0.48.0"
 features = ["Win32_System_Com"]
 
 [workspace]
-members = [
-    "macros",
-    "tests/smoke-test",
-]
+members = ["macros", "tests/smoke-test"]
